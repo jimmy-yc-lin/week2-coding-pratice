@@ -24,7 +24,7 @@ const server = http.createServer(function (request, response) {
             const post = qs.parse(body)
             let result = '';
 
-            switch(post.type){
+            switch (post.type) {
                 case 'Add':
                     result = calculator.add(post.numbers)
                     break;
