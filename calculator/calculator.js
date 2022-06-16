@@ -4,7 +4,7 @@ function convertToNumber(target) {
 }
 
 function add(numbers) {
-  if (!numbers) return "Field can't be empty";
+  if (!numbers && typeof numbers !== "string") return "Field can't be empty and must be string type";
 
   return numbers
     .split(",")
