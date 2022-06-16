@@ -3,8 +3,14 @@ function convertToNumber(target) {
   return Number(target) || 0;
 }
 
+function isNumbersValid(numbers) {
+  return !numbers || typeof numbers !== "string"
+}
+
+const ERROR_MSG = "Field can't be empty and must be string type";
+
 function add(numbers) {
-  if (!numbers && typeof numbers !== "string") return "Field can't be empty and must be string type";
+  if (isNumbersValid(numbers)) return ERROR_MSG
 
   return numbers
     .split(",")
@@ -36,8 +42,7 @@ function divide(dividend, divisor) {
 exports.divide = divide;
 
 function maximum(numbers) {
-  console.log(numbers);
-  if (!numbers) return "Field can't be empty";
+  if (isNumbersValid(numbers)) return ERROR_MSG
 
   return Math.max(...numbers.split(",").map((x) => convertToNumber(x)));
 }
@@ -45,7 +50,7 @@ function maximum(numbers) {
 exports.maximum = maximum;
 
 function minimum(numbers) {
-  if (!numbers) return "Field can't be empty";
+  if (isNumbersValid(numbers)) return ERROR_MSG
 
   return Math.min(...numbers.split(",").map((x) => convertToNumber(x)));
 }
