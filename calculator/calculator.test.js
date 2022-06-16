@@ -31,6 +31,23 @@ test("throw the error message for falsy value and not string type", () => {
     expect(calculator.add(null)).toBe(errorMsg);
 });
 
+// subtract
+test("subtract two numbers", () => {
+    expect(calculator.subtract("50", "10")).toBe(40);
+    expect(calculator.subtract("10", "10")).toBe(0);
+    expect(calculator.subtract("-10", "10")).toBe(-20);
+    expect(calculator.subtract("10", "-10")).toBe(20);
+    expect(calculator.subtract("-10", "-10")).toBe(0);
+});
+
+test("subtract two numbers and turn NaN value to 0", () => {
+    expect(calculator.subtract("50", "test")).toBe(50);
+    expect(calculator.subtract("test", "10")).toBe(-10);
+    expect(calculator.subtract("test", "test2")).toBe(0);
+    expect(calculator.subtract(null)).toBe(0);
+    expect(calculator.subtract()).toBe(0);
+});
+
 /*
     Please implement the rest of tests
     - subtract
