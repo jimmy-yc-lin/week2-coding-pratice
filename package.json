@@ -1,0 +1,19 @@
+{
+  "name": "bootcamp-typescript-pratice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmy-yc-lin/bootcamp-typescript-pratice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimmy-yc-lin/bootcamp-typescript-pratice/issues"
+  },
+  "homepage": "https://github.com/jimmy-yc-lin/bootcamp-typescript-pratice#readme"
+}
