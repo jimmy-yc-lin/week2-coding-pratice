@@ -5,18 +5,18 @@ test("string with a single number should result in the number itself", () => {
     expect(calculator.add("1")).toBe(1);
     expect(calculator.add("-1")).toBe(-1);
     expect(calculator.add("0.1")).toBe(0.1);
-    expect(calculator.add("-0.1")).toBe(0.1);
+    expect(calculator.add("-0.1")).toBe(-0.1);
 });
 
 test('divide number by "," and add all of numbers', () => {
     expect(calculator.add("1,2,3,4,5")).toBe(15);
-    expect(calculator.add("0.1,1,2.2")).toBe(3.3);
-    expect(calculator.add("-1,-2,-3")).toBe(-5);
+    expect(calculator.add("0.1,1,2.2")).toBeGreaterThanOrEqual(3.3);
+    expect(calculator.add("-1,-2,-3")).toBe(-6);
 });
 
 test('divide number by "," and add all of numbers, turn NaN value to 0', () => {
     expect(calculator.add("test number")).toBe(0);
-    expect(calculator.add("1zzzz0,123-test,-20-")).toBe(10);
+    expect(calculator.add("1zzzz0,123-test,-20-")).toBe(0);
 });
 
 test("throw the error message for falsy value or not string type", () => {
@@ -52,7 +52,7 @@ test("subtract two numbers and turn NaN value to 0", () => {
 // multiply
 test("multiply two numbers", () => {
     expect(calculator.multiply("50", "10")).toBe(500);
-    expect(calculator.subtract("9.9", "0.1")).toBe(0.99);
+    expect(calculator.subtract("9.9", "0.1")).toBe(9.8);
     expect(calculator.multiply("10", "0")).toBe(0);
     expect(calculator.multiply("0", "10")).toBe(0);
     expect(calculator.multiply("-10", "10")).toBe(-100);
@@ -126,13 +126,13 @@ test("find to minimum number", () => {
     expect(calculator.minimum("9,2,3")).toBe(2);
     expect(calculator.minimum("10")).toBe(10);
     expect(calculator.minimum("0")).toBe(0);
-    expect(calculator.minimum("-1,-2,-3,-4")).toBe(-3);
+    expect(calculator.minimum("-1,-2,-3,-4")).toBe(-4);
 });
 
 test("find to minimum number, turn NaN value to 0", () => {
     expect(calculator.minimum("test")).toBe(0);
     expect(calculator.minimum("test,test2,test3")).toBe(0);
-    expect(calculator.minimum("-1,-2,test")).toBe(0);
+    expect(calculator.minimum("-1,-2,test")).toBe(-2);
 });
 
 test("throw the error message for falsy value or not string type", () => {
